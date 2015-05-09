@@ -50,6 +50,19 @@ describe Knapsack do
       knapsack.pack(other_items).must_equal expected_other_items
     end
 
+    it 'doesn\'t get tricked by value/weight ratios' do
+      knapsack = Knapsack.new(size: 5)
+      items = {
+        2 => 2,
+        3 => 3,
+        4 => 4.5
+      }
+
+      result = knapsack.pack(items)
+
+      result.must_equal(2 => 2, 3 => 3)
+    end
+
     it 'can have empty space' do
       knapsack = Knapsack.new(size: 11)
 
