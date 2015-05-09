@@ -31,7 +31,6 @@ describe Knapsack do
 
       other_items = {
         3  => 9,
-        2  => 8,
         12 => 29,
         18 => 14,
         2  => 3
@@ -43,7 +42,6 @@ describe Knapsack do
       }
 
       expected_other_items = {
-        2 => 8,
         3 => 9,
         2 => 3
       }
