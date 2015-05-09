@@ -1,4 +1,4 @@
-# Rack Exercises
+# Rack
 
 Run `rackup` and compute.
 
