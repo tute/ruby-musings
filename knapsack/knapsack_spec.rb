@@ -14,7 +14,7 @@ describe Knapsack do
         18 => 67
       }
 
-      knapsack.pack(items).must_be_empty
+      knapsack.pack(items).must_equal 0
     end
 
     it 'optimizes for item value' do
@@ -46,8 +46,8 @@ describe Knapsack do
         2 => 3
       }
 
-      knapsack.pack(items).must_equal expected_items
-      knapsack.pack(other_items).must_equal expected_other_items
+      knapsack.pack(items).must_equal 30
+      knapsack.pack(other_items).must_equal 12
     end
 
     it 'doesn\'t get tricked by value/weight ratios' do
@@ -60,7 +60,7 @@ describe Knapsack do
 
       result = knapsack.pack(items)
 
-      result.must_equal(2 => 2, 3 => 3)
+      result.must_equal 5
     end
 
     it 'can have empty space' do
@@ -71,22 +71,7 @@ describe Knapsack do
         3 => 4
       }
 
-      knapsack.pack(items).must_equal items
-    end
-
-    it 'ignores negative weights' do
-      knapsack = Knapsack.new(size: 11)
-
-      items = {
-        -1 => 5,
-        -3 => -8,
-         2 => -2,
-         8 => 10
-      }
-
-      expected = {8 => 10}
-
-      knapsack.pack(items).must_equal expected
+      knapsack.pack(items).must_equal 12
     end
   end
 end
